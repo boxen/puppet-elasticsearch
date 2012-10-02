@@ -2,19 +2,19 @@ class elasticsearch {
   require elasticsearch::config
   require java
 
-  package { 'github/brews/elasticsearch':
-    ensure => '0.19.9-github1',
-    notify => Service['com.github.elasticsearch']
+  package { 'boxen/brews/elasticsearch':
+    ensure => '0.19.9-boxen1',
+    notify => Service['com.boxen.elasticsearch']
   }
 
-  service { 'com.github.elasticsearch':
+  service { 'com.boxen.elasticsearch':
     ensure  => running,
-    require => Package['github/brews/elasticsearch']
+    require => Package['boxen/brews/elasticsearch']
   }
 
 
-  file { "${github::config::envdir}/elasticsearch.sh":
+  file { "${boxen::config::envdir}/elasticsearch.sh":
     content => template('elasticsearch/env.sh.erb'),
-    require => File[$github::config::envdir]
+    require => File[$boxen::config::envdir]
   }
 }
