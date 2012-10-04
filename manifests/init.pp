@@ -1,3 +1,8 @@
+# Public: Install and configure elasticsearch from homebrew.
+#
+# Examples
+#
+#   include elasticsearch
 class elasticsearch {
   require elasticsearch::config
   require java
