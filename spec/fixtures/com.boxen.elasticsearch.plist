@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.boxen.elasticsearch</string>
+
+    <key>Boxen</key>
+    <dict>
+      <key>Description</key>
+      <string>Full-text indexing and searching.</string>
+
+      <key>Port</key>
+      <integer>19200</integer>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/boxen/homebrew/bin/elasticsearch</string>
+      <string>-f</string>
+      <string>-D es.config=/opt/boxen/config/elasticsearch/elasticsearch.yml</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true />
+
+    <key>KeepAlive</key>
+    <true />
+
+    <key>UserName</key>
+    <string>testuser</string>
+
+    <key>WorkingDirectory</key>
+    <string>/opt/boxen/data/elasticsearch</string>
+
+    <key>StandardErrorPath</key>
+    <string>/opt/boxen/log/elasticsearch/console.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/opt/boxen/log/elasticsearch/console.log</string>
+  </dict>
+</plist>
