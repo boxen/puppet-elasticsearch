@@ -1,3 +1,8 @@
+# Internal: Configure elasticsearch.
+#
+# Examples
+#
+#   include elasticsearch::config
 class elasticsearch::config {
   require boxen::config
 
