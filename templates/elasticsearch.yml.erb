@@ -229,6 +229,10 @@ http.port: <%= scope.lookupvar('elasticsearch::config::port') %>
 #
 # http.enabled: false
 
+# This setting makes Netty stop being burning CPU for what can only be
+# actual retardation.
+#
+network.tcp.blocking: true
 
 ################################### Gateway ###################################
 
