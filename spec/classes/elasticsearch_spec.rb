@@ -13,12 +13,12 @@ describe 'elasticsearch' do
   it do
     should contain_package('boxen/brews/elasticsearch').with({
       :ensure => '0.19.9-boxen1',
-      :notify => 'Service[com.boxen.elasticsearch]',
+      :notify => 'Service[dev.elasticsearch]',
     })
   end
 
   it do
-    should contain_service('com.boxen.elasticsearch').with({
+    should contain_service('dev.elasticsearch').with({
       :ensure  => 'running',
       :require => 'Package[boxen/brews/elasticsearch]',
     })

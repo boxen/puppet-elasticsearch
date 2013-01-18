@@ -24,15 +24,15 @@ describe 'elasticsearch::config' do
     should contain_file("#{configdir}/elasticsearch.yml").with({
       :content => File.read('spec/fixtures/elasticsearch.yml'),
       :require => "File[#{configdir}]",
-      :notify  => 'Service[com.boxen.elasticsearch]',
+      :notify  => 'Service[dev.elasticsearch]',
     })
   end
 
   it do
-    should contain_file('/Library/LaunchDaemons/com.boxen.elasticsearch.plist').with({
-      :content => File.read('spec/fixtures/com.boxen.elasticsearch.plist'),
+    should contain_file('/Library/LaunchDaemons/dev.elasticsearch.plist').with({
+      :content => File.read('spec/fixtures/dev.elasticsearch.plist'),
       :group   => 'wheel',
-      :notify  => 'Service[com.boxen.elasticsearch]',
+      :notify  => 'Service[dev.elasticsearch]',
       :owner   => 'root',
     })
   end
