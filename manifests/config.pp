@@ -23,13 +23,13 @@ class elasticsearch::config {
   file { $configfile:
     content => template('elasticsearch/elasticsearch.yml.erb'),
     require => File[$configdir],
-    notify  => Service['com.boxen.elasticsearch'],
+    notify  => Service['dev.elasticsearch'],
   }
 
-  file { '/Library/LaunchDaemons/com.boxen.elasticsearch.plist':
-    content => template('elasticsearch/com.boxen.elasticsearch.plist.erb'),
+  file { '/Library/LaunchDaemons/dev.elasticsearch.plist':
+    content => template('elasticsearch/dev.elasticsearch.plist.erb'),
     group   => 'wheel',
-    notify  => Service['com.boxen.elasticsearch'],
+    notify  => Service['dev.elasticsearch'],
     owner   => 'root'
   }
 }

@@ -9,14 +9,18 @@ class elasticsearch {
 
   package { 'boxen/brews/elasticsearch':
     ensure => '0.19.9-boxen1',
-    notify => Service['com.boxen.elasticsearch']
+    notify => Service['dev.elasticsearch']
   }
 
-  service { 'com.boxen.elasticsearch':
+  service { 'dev.elasticsearch':
     ensure  => running,
     require => Package['boxen/brews/elasticsearch']
   }
 
+  service { 'com.boxen.elasticsearch': # replaced by dev.elasticsearch
+    before => Service['dev.elasticsearch'],
+    enable => false
+  }
 
   file { "${boxen::config::envdir}/elasticsearch.sh":
     content => template('elasticsearch/env.sh.erb'),
