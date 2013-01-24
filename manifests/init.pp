@@ -5,6 +5,7 @@
 #   include elasticsearch
 class elasticsearch {
   require elasticsearch::config
+  include java
   require homebrew
 
   file { [
