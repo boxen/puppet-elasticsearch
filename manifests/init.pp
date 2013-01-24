@@ -5,10 +5,36 @@
 #   include elasticsearch
 class elasticsearch {
   require elasticsearch::config
+  require homebrew
   require java
 
+  file { [
+    $elasticsearch::config::configdir,
+    $elasticsearch::config::datadir,
+    $elasticsearch::config::logdir
+  ]:
+    ensure => directory,
+  }
+
+  file { $elasticsearch::config::configfile:
+    content => template('elasticsearch/elasticsearch.yml.erb'),
+    require => File[$elasticsearch::config::configdir],
+    notify  => Service['dev.elasticsearch'],
+  }
+
+  file { '/Library/LaunchDaemons/dev.elasticsearch.plist':
+    content => template('elasticsearch/dev.elasticsearch.plist.erb'),
+    group   => 'wheel',
+    notify  => Service['dev.elasticsearch'],
+    owner   => 'root'
+  }
+
+  homebrew::formula { 'elasticsearch':
+    before => Package['boxen/brews/elasticsearch'],
+  }
+
   package { 'boxen/brews/elasticsearch':
-    ensure => '0.19.9-boxen1',
+    ensure => '0.20.2-boxen1',
     notify => Service['dev.elasticsearch']
   }
 
