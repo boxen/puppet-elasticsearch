@@ -6,7 +6,6 @@
 class elasticsearch {
   require elasticsearch::config
   require homebrew
-  include java
 
   file { [
     $elasticsearch::config::configdir,
@@ -36,7 +35,7 @@ class elasticsearch {
   package { 'boxen/brews/elasticsearch':
     ensure  => '0.20.2-boxen1',
     notify  => Service['dev.elasticsearch'],
-    require => Package['java'],
+    require => Class['java'],
   }
 
   service { 'dev.elasticsearch':
