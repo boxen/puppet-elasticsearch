@@ -1,6 +1,8 @@
-# Elasticsearch Puppet Module for Boxen
+# elasticsearch Puppet Module for Boxen
 
-Requires the `boxen` puppet module.
+Install [elasticsearch](http://www.elasticsearch.org/, a distributed,
+RESTful search engine. The `GH_ELASTICSEARCH_PORT` environment
+variable is set.
 
 ## Usage
 
@@ -8,8 +10,11 @@ Requires the `boxen` puppet module.
 include elasticsearch
 ```
 
-## Developing
+## Required Puppet Modules
 
-Write code.
+* `boxen`
 
-Run `script/cibuild`.
+## Development
+
+Write code. Run `script/cibuild` to test it. Check the `script`
+directory for other useful tools.
