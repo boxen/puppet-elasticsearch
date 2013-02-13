@@ -1,6 +1,6 @@
 # elasticsearch Puppet Module for Boxen
 
-Install [elasticsearch](http://www.elasticsearch.org/, a distributed,
+Install [elasticsearch](http://www.elasticsearch.org), a distributed,
 RESTful search engine. The `GH_ELASTICSEARCH_PORT` environment
 variable is set.
 
