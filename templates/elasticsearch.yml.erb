@@ -84,7 +84,8 @@ cluster.name: <%= scope.lookupvar "elasticsearch::config::cluster" %>
 
 # By default, multiple nodes are allowed to start from the same installation location
 # to disable it, set the following:
-# node.max_local_storage_nodes: 1
+#
+node.max_local_storage_nodes: 1
 
 
 #################################### Index ####################################
@@ -320,8 +321,8 @@ network.tcp.blocking: true
 #
 # 1. Disable multicast discovery (enabled by default):
 #
-# discovery.zen.ping.multicast.enabled: false
-#
+discovery.zen.ping.multicast.enabled: false
+
 # 2. Configure an initial list of master nodes in the cluster
 #    to perform discovery when new nodes (master or data) are started:
 #
@@ -336,6 +337,29 @@ network.tcp.blocking: true
 #
 # See <http://elasticsearch.org/tutorials/2011/08/22/elasticsearch-on-ec2.html>
 # for a step-by-step tutorial.
+
+
+################################## Actions ##################################
+
+# Sending a DELETE request to the based URL of the server will delete every
+# index. This setting will disable that functionality since it is pretty
+# dangerous.
+#
+# See <http://www.elasticsearch.org/guide/reference/api/admin-indices-delete-index/>
+# for more information.
+#
+action.disable_delete_all_indices: true
+
+# Disable automatic index creation.
+#
+# Automatic index creation can include a pattern based white/black list, for
+# example: +aaa*,-bbb*,+ccc*,-* (+ meaning allowed, and – meaning disallowed).
+#
+# See the "Automatic Index Creation" section
+# <http://www.elasticsearch.org/guide/reference/api/index_/> for more
+# information.
+#
+# action.auto_create_index: false
 
 
 ################################## Slow Log ##################################
