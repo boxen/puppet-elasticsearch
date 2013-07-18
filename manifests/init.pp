@@ -34,7 +34,7 @@ class elasticsearch {
   }
 
   package { 'boxen/brews/elasticsearch':
-    ensure  => '0.20.2-boxen1',
+    ensure  => '0.90.2-boxen1',
     notify  => Service['dev.elasticsearch'],
     require => Class['java'],
   }
