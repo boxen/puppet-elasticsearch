@@ -5,7 +5,7 @@ describe 'elasticsearch' do
   let(:configdir) { "#{boxen_home}/config/elasticsearch" }
   let(:facts) do
     {
-      :boxen_home => '/opt/boxen',
+      :boxen_home => boxen_home,
       :boxen_user => 'testuser',
     }
   end
