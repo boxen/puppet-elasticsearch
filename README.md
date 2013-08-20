@@ -15,6 +15,8 @@ include elasticsearch
 ## Required Puppet Modules
 
 * `boxen`
+* `homebrew`
+* `java`
 
 ## Development
 
