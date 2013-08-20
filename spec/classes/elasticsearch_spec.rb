@@ -38,7 +38,7 @@ describe 'elasticsearch' do
     })
 
     should contain_package('boxen/brews/elasticsearch').with({
-      :ensure => '0.20.2-boxen1',
+      :ensure => '0.90.2-boxen1',
       :notify => 'Service[dev.elasticsearch]',
     })
 
