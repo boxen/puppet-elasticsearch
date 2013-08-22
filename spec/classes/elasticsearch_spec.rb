@@ -31,13 +31,19 @@ describe 'elasticsearch' do
     })
 
     should contain_package('boxen/brews/elasticsearch').with({
-      :ensure => '0.90.2-boxen1',
-      :notify => 'Service[dev.elasticsearch]',
+      :ensure  => '0.90.2-boxen1',
+      :notify  => 'Service[dev.elasticsearch]',
+      :require => 'Class[Java]'
     })
 
     should contain_service('dev.elasticsearch').with({
       :ensure  => 'running',
       :require => 'Package[boxen/brews/elasticsearch]',
+    })
+
+    should contain_service('com.boxen.elasticsearch').with({
+      :ensure  => nil,
+      :before => 'Service[dev.elasticsearch]',
     })
 
     should contain_file('/test/boxen/env.d/elasticsearch.sh').with({
