@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/boxen/puppet-elasticsearch.png?branch=master)](https://travis-ci.org/boxen/puppet-elasticsearch)
 
 Install [elasticsearch](http://www.elasticsearch.org), a distributed,
-RESTful search engine. The `BOXEN_ELASTICSEARCH_PORT` and 
+RESTful search engine. The `BOXEN_ELASTICSEARCH_PORT` and
 `BOXEN_ELASTICSEARCH_URL` environment variables are set.
 
 ## Usage
@@ -16,7 +16,9 @@ include elasticsearch
 
 * `boxen`
 * `homebrew`
+* `repository`
 * `java`
+* `stdlib`
 
 ## Development
 
