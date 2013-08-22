@@ -140,11 +140,11 @@ cluster.name: elasticsearch_boxen_testuser
 
 # Path to directory containing configuration (this file and logging.yml):
 #
-path.conf: /opt/boxen/config/elasticsearch/
+path.conf: /test/boxen/config/elasticsearch/
 
 # Path to directory where to store index data allocated for this node.
 #
-path.data: /opt/boxen/data/elasticsearch/
+path.data: /test/boxen/data/elasticsearch/
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (à la RAID 0) on a file level, favouring locations with most free
@@ -158,7 +158,7 @@ path.data: /opt/boxen/data/elasticsearch/
 
 # Path to log files:
 #
-path.logs: /opt/boxen/log/elasticsearch/
+path.logs: /test/boxen/log/elasticsearch/
 
 # Path to where plugins are installed:
 #

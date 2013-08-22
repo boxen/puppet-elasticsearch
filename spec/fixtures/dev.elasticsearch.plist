@@ -16,9 +16,9 @@
 
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/boxen/homebrew/bin/elasticsearch</string>
+      <string>/test/boxen/homebrew/bin/elasticsearch</string>
       <string>-f</string>
-      <string>-D es.config=/opt/boxen/config/elasticsearch/elasticsearch.yml</string>
+      <string>-D es.config=/test/boxen/config/elasticsearch/elasticsearch.yml</string>
     </array>
 
     <key>RunAtLoad</key>
@@ -31,12 +31,12 @@
     <string>testuser</string>
 
     <key>WorkingDirectory</key>
-    <string>/opt/boxen/data/elasticsearch</string>
+    <string>/test/boxen/data/elasticsearch</string>
 
     <key>StandardErrorPath</key>
-    <string>/opt/boxen/log/elasticsearch/console.log</string>
+    <string>/test/boxen/log/elasticsearch/console.log</string>
 
     <key>StandardOutPath</key>
-    <string>/opt/boxen/log/elasticsearch/console.log</string>
+    <string>/test/boxen/log/elasticsearch/console.log</string>
   </dict>
 </plist>
