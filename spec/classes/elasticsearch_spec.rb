@@ -17,8 +17,8 @@ describe 'elasticsearch' do
       })
     end
 
-      #:content => File.read('spec/fixtures/elasticsearch.yml'),
     should contain_file("/test/boxen/config/elasticsearch/elasticsearch.yml").with({
+      :content => File.read('spec/fixtures/elasticsearch.yml'),
       :require => "File[/test/boxen/config/elasticsearch]",
       :notify  => 'Service[dev.elasticsearch]'
     })
