@@ -1,14 +1,7 @@
 require 'spec_helper'
 
 describe 'elasticsearch' do
-  let(:boxen_home) { '/opt/boxen' }
-  let(:configdir) { "#{boxen_home}/config/elasticsearch" }
-  let(:facts) do
-    {
-      :boxen_home => '/opt/boxen',
-      :boxen_user => 'testuser',
-    }
-  end
+  let(:facts) { default_test_facts }
 
   it do
     should include_class('elasticsearch::config')
@@ -19,15 +12,15 @@ describe 'elasticsearch' do
       with_before('Package[boxen/brews/elasticsearch]')
 
     ['config', 'data', 'log'].each do |dir|
-      should contain_file("#{boxen_home}/#{dir}/elasticsearch").with({
-        :ensure => 'directory',
+      should contain_file("/test/boxen/#{dir}/elasticsearch").with({
+        :ensure => 'directory'
       })
     end
 
-    should contain_file("#{configdir}/elasticsearch.yml").with({
-      #:content => File.read('spec/fixtures/elasticsearch.yml'),
-      :require => "File[#{configdir}]",
-      :notify  => 'Service[dev.elasticsearch]',
+    should contain_file("/test/boxen/config/elasticsearch/elasticsearch.yml").with({
+      :content => File.read('spec/fixtures/elasticsearch.yml'),
+      :require => "File[/test/boxen/config/elasticsearch]",
+      :notify  => 'Service[dev.elasticsearch]'
     })
 
     should contain_file('/Library/LaunchDaemons/dev.elasticsearch.plist').with({
@@ -40,6 +33,7 @@ describe 'elasticsearch' do
     should contain_package('boxen/brews/elasticsearch').with({
       :ensure => '0.90.3-boxen1',
       :notify => 'Service[dev.elasticsearch]',
+      :require => 'Class[Java]'
     })
 
     should contain_service('dev.elasticsearch').with({
@@ -47,9 +41,14 @@ describe 'elasticsearch' do
       :require => 'Package[boxen/brews/elasticsearch]',
     })
 
-    should contain_file('/opt/boxen/env.d/elasticsearch.sh').with({
+    should contain_service('com.boxen.elasticsearch').with({
+      :ensure  => nil,
+      :before => 'Service[dev.elasticsearch]',
+    })
+
+    should contain_file('/test/boxen/env.d/elasticsearch.sh').with({
       :content => File.read('spec/fixtures/elasticsearch.sh'),
-      :require => 'File[/opt/boxen/env.d]',
+      :require => 'File[/test/boxen/env.d]'
     })
   end
 end
