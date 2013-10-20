@@ -2,9 +2,9 @@ require 'formula'
 
 class Elasticsearch < Formula
   homepage 'http://www.elasticsearch.org'
-  url 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.3.tar.gz'
-  sha1 '24843192bee3afd19f5a958800e896153dbc3569'
-  version '0.90.3-boxen1'
+  url 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.tar.gz'
+  sha1 '8027a4ae1bef6876c7651b1590607c8ff6108820'
+  version '0.90.5-boxen1'
 
   def cluster_name
     "elasticsearch_#{ENV['USER']}"
