@@ -1,3 +1,5 @@
+# Internal: Manages the elasticsearch package
+#
 class elasticsearch::package(
   $ensure  = $elasticsearch::params::ensure,
   $version = $elasticsearch::params::version,

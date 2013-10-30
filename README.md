@@ -12,9 +12,12 @@ RESTful search engine. The `BOXEN_ELASTICSEARCH_PORT` and
 include elasticsearch
 ```
 
+This module supports data bindings via hiera.
+See the parameters to the elasticsearch class for overrideable values.
+
 ## Required Puppet Modules
 
-* `boxen`
+* `boxen` >= 3.3.3
 * `homebrew`
 * `repository`
 * `java`

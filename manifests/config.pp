@@ -1,3 +1,6 @@
+# Internal: Manages the elasticsearch configuration files
+#
+
 class elasticsearch::config(
   $ensure         = $elasticsearch::params::ensure,
   $cluster        = $elasticsearch::params::cluster,

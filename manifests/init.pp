@@ -33,7 +33,7 @@ class elasticsearch(
 
   ~>
   class { 'elasticsearch::config':
-    ensure => $ensure,
+    ensure         => $ensure,
 
     cluster        => $cluster,
     user           => $user,
