@@ -17,7 +17,8 @@ class elasticsearch::config(
   }
 
   File {
-    owner => $user
+    ensure => $ensure,
+    owner  => $user
   }
 
   file {
@@ -40,7 +41,8 @@ class elasticsearch::config(
   if $::operatingsystem == 'Darwin' {
     include boxen::config
 
-    "${boxen::config::envdir}/elasticsearch.sh":
-      content => template('elasticsearch/env.sh.erb') ;
+    file { "${boxen::config::envdir}/elasticsearch.sh":
+      content => template('elasticsearch/env.sh.erb')
+    }
   }
 }
