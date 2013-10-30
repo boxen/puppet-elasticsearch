@@ -1,5 +1,6 @@
 class elasticsearch::service(
   $ensure = $elasticsearch::params::ensure,
+  $enable = $elasticsearch::params::enable,
 ) inherits elasticsearch::params {
 
   $service_ensure = $ensure ? {
@@ -8,12 +9,14 @@ class elasticsearch::service(
   }
 
   service { 'com.boxen.elasticsearch':
-    ensure => false,
+    ensure => stopped,
+    enable => false,
   }
 
   ->
   service { 'dev.elasticsearch':
-    ensure  => $service_ensure,
+    ensure => $service_ensure,
+    enable => $enable,
   }
 
 }

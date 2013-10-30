@@ -6,9 +6,15 @@ class elasticsearch::config(
   $datadir        = $elasticsearch::params::datadir,
   $executable     = $elasticsearch::params::executable,
   $logdir         = $elasticsearch::params::logdir,
+  $host           = $elasticsearch::params::host,
   $http_port      = $elasticsearch::params::http_port,
   $transport_port = $elasticsearch::params::transport_port,
 ) inherits elasticsearch::params {
+
+  $dir_ensure = $ensure ? {
+    present => directory,
+    default => absent,
+  }
 
   File {
     owner => $user
@@ -20,7 +26,7 @@ class elasticsearch::config(
       $datadir,
       $logdir
     ]:
-      ensure => directory ;
+      ensure => $dir_ensure ;
 
     "${configdir}/elasticsearch.yml":
       content => template('elasticsearch/elasticsearch.yml.erb') ;
@@ -29,9 +35,12 @@ class elasticsearch::config(
       content => template('elasticsearch/dev.elasticsearch.plist.erb'),
       group   => 'wheel',
       owner   => 'root' ;
-
-    "${envdir}/elasticsearch.sh":
-      content => template('elasticsearch/env.sh.erb') ;
   }
 
+  if $::operatingsystem == 'Darwin' {
+    include boxen::config
+
+    "${boxen::config::envdir}/elasticsearch.sh":
+      content => template('elasticsearch/env.sh.erb') ;
+  }
 }

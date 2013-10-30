@@ -3,15 +3,13 @@ class elasticsearch::package(
   $version = $elasticsearch::params::version,
   $package = $elasticsearch::params::package,
 ) inherits elasticsearch::params {
-  
+
   $package_ensure = $ensure ? {
     present => $version,
     default => installed,
   }
 
-  homebrew::formula { 'elasticsearch':
-    ensure => $ensure
-  }
+  homebrew::formula { 'elasticsearch': }
 
   ->
   package { $package:

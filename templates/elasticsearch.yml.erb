@@ -15,8 +15,8 @@ path:
   logs: <%= @logdir %>/
 
 network:
-  bind_host: 127.0.0.1
-  publish_host: 127.0.0.1
+  bind_host: <%= @host %>
+  publish_host: <%= @host %>
   tcp:
     blocking: true
 
@@ -40,4 +40,4 @@ discovery:
         enabled: false
       unicast:
         hosts:
-          - 127.0.0.1:<%= @transport_port %>
+          - <%= @host %>:<%= @transport_port %>
