@@ -39,10 +39,16 @@ class elasticsearch::config(
   }
 
   if $::operatingsystem == 'Darwin' {
+    boxen::env_script { 'elasticsearch':
+      ensure   => $ensure,
+      content  => template('elasticsearch/env.sh.erb'),
+      priority => 'lower',
+    }
+
     include boxen::config
 
     file { "${boxen::config::envdir}/elasticsearch.sh":
-      content => template('elasticsearch/env.sh.erb')
+      ensure => absent,
     }
   }
 }

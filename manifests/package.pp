@@ -9,9 +9,10 @@ class elasticsearch::package(
     default => installed,
   }
 
-  homebrew::formula { 'elasticsearch': }
+  if $::operatingsystem == 'Darwin' {
+    homebrew::formula { 'elasticsearch': }
+  }
 
-  ->
   package { $package:
     ensure  => $package_ensure,
   }
