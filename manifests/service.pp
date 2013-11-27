@@ -19,6 +19,7 @@ class elasticsearch::service(
   service { 'dev.elasticsearch':
     ensure => $service_ensure,
     enable => $enable,
+    alias  => 'elasticsearch',
   }
 
 }
