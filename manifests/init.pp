@@ -44,6 +44,8 @@ class elasticsearch(
     host           => $host,
     http_port      => $http_port,
     transport_port => $transport_port,
+
+    notify         => Service['elasticsearch'],
   }
 
   ~>
