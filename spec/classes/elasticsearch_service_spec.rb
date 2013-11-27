@@ -8,6 +8,7 @@ describe "elasticsearch::service" do
     should contain_service("dev.elasticsearch").with({
       :ensure => :running,
       :enable => true,
+      :alias  => 'elasticsearch'
     })
   end
 end
