@@ -1,10 +1,10 @@
 # Internal: Manages the elasticsearch package
 #
 class elasticsearch::package(
-  $ensure  = $elasticsearch::params::ensure,
-  $version = $elasticsearch::params::version,
-  $package = $elasticsearch::params::package,
-) inherits elasticsearch::params {
+  $ensure  = undef,
+  $version = undef,
+  $package = undef,
+) {
 
   $package_ensure = $ensure ? {
     present => $version,

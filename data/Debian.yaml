@@ -1,0 +1,14 @@
+---
+elasticsearch::version:        'installed'
+elasticsearch::package:        'elasticsearch'
+
+elasticsearch::cluster:        "elasticsearch_boxen_%{::boxen_user}"
+elasticsearch::user:           "root"
+elasticsearch::configdir:      "/etc/elasticsearch"
+elasticsearch::datadir:        "/data/elasticsearch"
+elasticsearch::logdir:         "/var/log/elasticsearch"
+
+elasticsearch::host:           '%{::ipaddress}'
+elasticsearch::http_port:      19200
+elasticsearch::transport_port: 19300
+
