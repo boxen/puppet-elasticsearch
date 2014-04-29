@@ -1,0 +1,14 @@
+---
+elasticsearch::version:        '0.90.5-boxen1'
+elasticsearch::package:        'boxen/brews/elasticsearch'
+
+elasticsearch::cluster:        "elasticsearch_boxen_${::boxen_user}"
+elasticsearch::user:           $::boxen_user
+elasticsearch::configdir:      "${boxen::config::configdir}/elasticsearch"
+elasticsearch::datadir:        "${boxen::config::datadir}/elasticsearch"
+elasticsearch::executable:     "${boxen::config::homebrewdir}/bin/elasticsearch"
+elasticsearch::logdir:         "${boxen::config::logdir}/elasticsearch"
+
+elasticsearch::host:           '127.0.0.1'
+elasticsearch::http_port:      19200
+elasticsearch::transport_port: 19300

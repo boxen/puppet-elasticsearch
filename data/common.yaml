@@ -1,0 +1,4 @@
+---
+elasticsearch::ensure: present
+elasticsearch::enable: true
+

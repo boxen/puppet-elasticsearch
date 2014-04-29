@@ -4,23 +4,33 @@
 #
 #   include elasticsearch
 class elasticsearch(
-  $ensure         = $elasticsearch::params::ensure,
+  $ensure         = undef,
 
-  $version        = $elasticsearch::params::version,
-  $package        = $elasticsearch::params::package,
+  $version        = undef,
+  $package        = undef,
 
-  $cluster        = $elasticsearch::params::cluster,
-  $user           = $elasticsearch::params::user,
-  $configdir      = $elasticsearch::params::configdir,
-  $datadir        = $elasticsearch::params::datadir,
-  $executable     = $elasticsearch::params::executable,
-  $logdir         = $elasticsearch::params::logdir,
-  $host           = $elasticsearch::params::host,
-  $http_port      = $elasticsearch::params::http_port,
-  $transport_port = $elasticsearch::params::transport_port,
+  $cluster        = undef,
+  $user           = undef,
+  $configdir      = undef,
+  $datadir        = undef,
+  $executable     = undef,
+  $logdir         = undef,
+  $host           = undef,
+  $http_port      = undef,
+  $transport_port = undef,
 
-  $enable         = $elasticsearch::params::enable,
-) inherits elasticsearch::params {
+  $enable         = undef,
+) {
+  validate_string(
+    $version,
+    $package,
+    $cluster,
+    $user,
+    $configdir,
+    $datadir,
+    $logdir,
+    $host,
+  )
 
   include java
 

@@ -1,9 +1,9 @@
 # Internal: Manages the elasticsearch service
 #
 class elasticsearch::service(
-  $ensure = $elasticsearch::params::ensure,
-  $enable = $elasticsearch::params::enable,
-) inherits elasticsearch::params {
+  $ensure = undef,
+  $enable = undef,
+) {
 
   $service_ensure = $ensure ? {
     present => running,
