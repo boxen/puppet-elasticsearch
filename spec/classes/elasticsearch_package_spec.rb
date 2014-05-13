@@ -6,6 +6,6 @@ describe "elasticsearch::package" do
   it do
     should contain_homebrew__formula("elasticsearch")
 
-    should contain_package("boxen/brews/elasticsearch").with_ensure("0.90.5-boxen1")
+    should contain_package("boxen/brews/elasticsearch").with_ensure("1.1.1-boxen1")
   end
 end
