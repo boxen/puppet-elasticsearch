@@ -1,6 +1,6 @@
 # elasticsearch Puppet Module for Boxen
 
-[![Build Status](https://travis-ci.org/boxen/puppet-elasticsearch.png?branch=master)](https://travis-ci.org/boxen/puppet-elasticsearch)
+[![Build Status](https://travis-ci.org/boxen/puppet-elasticsearch.svg?branch=master)](https://travis-ci.org/boxen/puppet-elasticsearch)
 
 Install [elasticsearch](http://www.elasticsearch.org), a distributed,
 RESTful search engine. The `BOXEN_ELASTICSEARCH_PORT` and
