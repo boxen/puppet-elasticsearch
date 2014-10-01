@@ -1,14 +1,14 @@
-require 'formula'
+require "formula"
 
 class Elasticsearch < Formula
-  homepage 'http://www.elasticsearch.org'
-  url 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.3.tar.gz'
-  sha1 'bbf83a82c00d5829e6ce7d7c2617bcdaac022ab3'
-  version '1.2.3-boxen1'
+  homepage "http://www.elasticsearch.org"
+  url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.4.tar.gz"
+  sha1 "6d63c5d95a6fecf88ce1673fee2aa47720c9e300"
+  version '1.3.4-boxen1'
 
   head do
-    url 'https://github.com/elasticsearch/elasticsearch.git'
-    depends_on 'maven'
+    url "https://github.com/elasticsearch/elasticsearch.git"
+    depends_on "maven"
   end
 
   def cluster_name
@@ -27,11 +27,11 @@ class Elasticsearch < Formula
     rm_f Dir["bin/*.bat"]
 
     # Move libraries to `libexec` directory
-    libexec.install Dir['lib/*.jar']
-    (libexec/'sigar').install Dir['lib/sigar/*.{jar,dylib}']
+    libexec.install Dir["lib/*.jar"]
+    (libexec/"sigar").install Dir["lib/sigar/*.{jar,dylib}"]
 
     # Install everything else into package directory
-    prefix.install Dir['*']
+    prefix.install Dir["*"]
 
     # Remove unnecessary files
     rm_f Dir["#{lib}/sigar/*"]
