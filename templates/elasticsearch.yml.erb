@@ -27,6 +27,8 @@ transport:
 http:
   port: <%= @http_port %>
   max_content_length: 500mb
+  cors:
+    enabled: <%= @http_cors_enabled %>
 
 gateway:
   type: local

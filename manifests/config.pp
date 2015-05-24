@@ -2,16 +2,17 @@
 #
 
 class elasticsearch::config(
-  $ensure         = $elasticsearch::params::ensure,
-  $cluster        = $elasticsearch::params::cluster,
-  $user           = $elasticsearch::params::user,
-  $configdir      = $elasticsearch::params::configdir,
-  $datadir        = $elasticsearch::params::datadir,
-  $executable     = $elasticsearch::params::executable,
-  $logdir         = $elasticsearch::params::logdir,
-  $host           = $elasticsearch::params::host,
-  $http_port      = $elasticsearch::params::http_port,
-  $transport_port = $elasticsearch::params::transport_port,
+  $ensure            = $elasticsearch::params::ensure,
+  $cluster           = $elasticsearch::params::cluster,
+  $user              = $elasticsearch::params::user,
+  $configdir         = $elasticsearch::params::configdir,
+  $datadir           = $elasticsearch::params::datadir,
+  $executable        = $elasticsearch::params::executable,
+  $logdir            = $elasticsearch::params::logdir,
+  $host              = $elasticsearch::params::host,
+  $http_port         = $elasticsearch::params::http_port,
+  $http_cors_enabled = $elasticsearch::params::http_cors_enabled,
+  $transport_port    = $elasticsearch::params::transport_port,
 ) inherits elasticsearch::params {
 
   $dir_ensure = $ensure ? {

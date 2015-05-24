@@ -4,22 +4,23 @@
 #
 #   include elasticsearch
 class elasticsearch(
-  $ensure         = $elasticsearch::params::ensure,
+  $ensure            = $elasticsearch::params::ensure,
 
-  $version        = $elasticsearch::params::version,
-  $package        = $elasticsearch::params::package,
+  $version           = $elasticsearch::params::version,
+  $package           = $elasticsearch::params::package,
 
-  $cluster        = $elasticsearch::params::cluster,
-  $user           = $elasticsearch::params::user,
-  $configdir      = $elasticsearch::params::configdir,
-  $datadir        = $elasticsearch::params::datadir,
-  $executable     = $elasticsearch::params::executable,
-  $logdir         = $elasticsearch::params::logdir,
-  $host           = $elasticsearch::params::host,
-  $http_port      = $elasticsearch::params::http_port,
-  $transport_port = $elasticsearch::params::transport_port,
+  $cluster           = $elasticsearch::params::cluster,
+  $user              = $elasticsearch::params::user,
+  $configdir         = $elasticsearch::params::configdir,
+  $datadir           = $elasticsearch::params::datadir,
+  $executable        = $elasticsearch::params::executable,
+  $logdir            = $elasticsearch::params::logdir,
+  $host              = $elasticsearch::params::host,
+  $http_port         = $elasticsearch::params::http_port,
+  $transport_port    = $elasticsearch::params::transport_port,
+  $http_cors_enabled = $elasticsearch::params::http_cors_enabled,
 
-  $enable         = $elasticsearch::params::enable,
+  $enable            = $elasticsearch::params::enable,
 ) inherits elasticsearch::params {
 
   include java
@@ -35,19 +36,20 @@ class elasticsearch(
 
   ~>
   class { 'elasticsearch::config':
-    ensure         => $ensure,
+    ensure            => $ensure,
 
-    cluster        => $cluster,
-    user           => $user,
-    configdir      => $configdir,
-    datadir        => $datadir,
-    executable     => $executable,
-    logdir         => $logdir,
-    host           => $host,
-    http_port      => $http_port,
-    transport_port => $transport_port,
+    cluster           => $cluster,
+    user              => $user,
+    configdir         => $configdir,
+    datadir           => $datadir,
+    executable        => $executable,
+    logdir            => $logdir,
+    host              => $host,
+    http_port         => $http_port,
+    transport_port    => $transport_port,
+    http_cors_enabled => $http_cors_enabled,
 
-    notify         => Service['elasticsearch'],
+    notify            => Service['elasticsearch'],
   }
 
   ~>
