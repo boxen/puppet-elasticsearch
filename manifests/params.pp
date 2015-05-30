@@ -6,23 +6,25 @@ class elasticsearch::params {
     Darwin: {
       include boxen::config
 
-      $ensure         = 'present'
+      $ensure            = 'present'
 
-      $version        = '1.5.2-boxen1'
-      $package        = 'boxen/brews/elasticsearch'
+      $version           = '1.5.2-boxen1'
+      $package           = 'boxen/brews/elasticsearch'
 
-      $cluster        = "elasticsearch_boxen_${::boxen_user}"
-      $user           = $::boxen_user
-      $configdir      = "${boxen::config::configdir}/elasticsearch"
-      $datadir        = "${boxen::config::datadir}/elasticsearch"
-      $executable     = "${boxen::config::homebrewdir}/bin/elasticsearch"
-      $logdir         = "${boxen::config::logdir}/elasticsearch"
+      $cluster           = "elasticsearch_boxen_${::boxen_user}"
+      $user              = $::boxen_user
+      $configdir         = "${boxen::config::configdir}/elasticsearch"
+      $datadir           = "${boxen::config::datadir}/elasticsearch"
+      $executable        = "${boxen::config::homebrewdir}/bin/elasticsearch"
+      $logdir            = "${boxen::config::logdir}/elasticsearch"
 
-      $host           = '127.0.0.1'
-      $http_port      = 19200
-      $transport_port = 19300
+      $host              = '127.0.0.1'
+      $http_port         = 19200
+      $transport_port    = 19300
 
-      $enable         = true
+      $http_cors_enabled = false
+
+      $enable            = true
     }
 
     default: {
