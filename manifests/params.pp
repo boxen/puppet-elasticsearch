@@ -8,7 +8,7 @@ class elasticsearch::params {
 
       $ensure         = 'present'
 
-      $version        = '1.5.2-boxen1'
+      $version        = '1.7.1-boxen1'
       $package        = 'boxen/brews/elasticsearch'
 
       $cluster        = "elasticsearch_boxen_${::boxen_user}"
