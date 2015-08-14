@@ -1,13 +1,13 @@
 require "formula"
 
 class Elasticsearch < Formula
-  homepage "http://www.elasticsearch.org"
-  url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz"
+  homepage "http://www.elastic.co"
+  url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.5.2.tar.gz"
   sha1 "ffe2e46ec88f4455323112a556adaaa085669d13"
   version '1.5.2-boxen1'
 
   head do
-    url "https://github.com/elasticsearch/elasticsearch.git"
+    url "https://github.com/elastic/elasticsearch.git"
     depends_on "maven"
   end
 
