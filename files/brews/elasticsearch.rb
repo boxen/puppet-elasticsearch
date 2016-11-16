@@ -3,7 +3,7 @@ require "formula"
 class Elasticsearch < Formula
   homepage "http://www.elastic.co"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.1.tar.gz"
-  sha1 "ffe2e46ec88f4455323112a556adaaa085669d13"
+  sha256 "86a0c20eea6ef55b14345bff5adf896e6332437b19180c4582a346394abde019"
   version '1.7.1-boxen1'
 
   head do
